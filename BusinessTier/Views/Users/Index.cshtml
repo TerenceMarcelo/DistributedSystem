@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Bank Users";
+}
+
+<form>
+    <input type="text" id="id" name="id" placeholder="User ID" />
+    <input type="text" id="fname" name="fname" placeholder="First Name" />
+    <input type="text" id="lname" name="lname" placeholder="Last Name" />
+</form>
+<p></p>
+<button id="getBut" onclick="GetUserClick()">Get User Details</button>
+<button id="addBut" onclick="AddUserClick()">Add User Details</button>
+
+<script>
+    function GetUserClick() {
+        $.ajax({
+            url: '/api/GetUser/' + $('#id').val(),
+            type: 'get',
+            contentType: 'application/json',
+            processData: false,
+            success: function (data, textStatus, jQxhr) {
+                var obj = data;
+                $("#fname").val(obj.fName);
+                $("#lname").val(obj.lName);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    }
+
+    function AddUserClick() {
+        $.ajax({
+            url: '/api/AddUser',
+            type: 'post',
+            contentType: 'application/json',
+            processData: false,
+            data: JSON.stringify({
+                userID:null,
+                fName: $("#fname"),
+                lName: $("#lname")
+            }),
+            success: function (data, textStatus, jQxhr) {
+                $('#id').val(data);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+                console.log("Could Not Add.");
+            }
+        });
+    }
+</script>
+

@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Bank Accounts";
+}
+
+
+<form>
+    <input type="text" id="accountID" name="accountID" placeholder="Account ID" />
+    <input type="text" id="userID" name="userID" placeholder="User ID" />
+    <input type="text" id="balance" name="balance" placeholder="Balance" />
+    <p></p>
+</form>
+<button id="getBut" onclick="GetAccountClick()">Get Account Details</button>
+<button id="addBut" onclick="AddAccountClick()">Add Account Details</button>
+
+<script>
+    function GetAccountClick() {
+        $.ajax({
+            url: '/api/GetAccount/' + $('#accountID').val(),
+            type: 'get',
+            contentType: 'application/json',
+            processData: false,
+            success: function (data, textStatus, jQxhr) {
+                var obj = data;
+                $("#userID").val(obj.userID);
+                $("#balance").val(obj.balance);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    }
+
+    function AddAccountClick() {
+        $.ajax({
+            url: '/api/AddAccount',
+            type: 'post',
+            contentType: 'application/json',
+            processData: false,
+            data: JSON.stringify({
+                accoundID: null,
+                Owner: $("#ownerID"),
+                Balance: $("#balanceID")
+            }),
+            success: function (data, textStatus, jQxhr) {
+                $('#accountID').val(data);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    }
+</script>
+

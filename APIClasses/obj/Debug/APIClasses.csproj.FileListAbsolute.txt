@@ -1,0 +1,15 @@
+D:\Uni\DC\Pracs4-5\APIClasses\bin\Debug\APIClasses.dll
+D:\Uni\DC\Pracs4-5\APIClasses\bin\Debug\APIClasses.pdb
+D:\Uni\DC\Pracs4-5\APIClasses\bin\Debug\BankDB.dll
+D:\Uni\DC\Pracs4-5\APIClasses\obj\Debug\APIClasses.csprojAssemblyReference.cache
+D:\Uni\DC\Pracs4-5\APIClasses\obj\Debug\APIClasses.csproj.CoreCompileInputs.cache
+D:\Uni\DC\Pracs4-5\APIClasses\obj\Debug\APIClasses.csproj.CopyComplete
+D:\Uni\DC\Pracs4-5\APIClasses\obj\Debug\APIClasses.dll
+D:\Uni\DC\Pracs4-5\APIClasses\obj\Debug\APIClasses.pdb
+D:\Uni\DC\DCAssignment2_19163785\P04\APIClasses\bin\Debug\APIClasses.dll
+D:\Uni\DC\DCAssignment2_19163785\P04\APIClasses\bin\Debug\APIClasses.pdb
+D:\Uni\DC\DCAssignment2_19163785\P04\APIClasses\obj\Debug\APIClasses.csprojAssemblyReference.cache
+D:\Uni\DC\DCAssignment2_19163785\P04\APIClasses\obj\Debug\APIClasses.csproj.CoreCompileInputs.cache
+D:\Uni\DC\DCAssignment2_19163785\P04\APIClasses\obj\Debug\APIClasses.csproj.CopyComplete
+D:\Uni\DC\DCAssignment2_19163785\P04\APIClasses\obj\Debug\APIClasses.dll
+D:\Uni\DC\DCAssignment2_19163785\P04\APIClasses\obj\Debug\APIClasses.pdb

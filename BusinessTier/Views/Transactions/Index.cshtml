@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Bank Transactions";
+}
+
+<form>
+    <input type="text" id="id" name="id" placeholder="Transaction ID" />
+    <input type="text" id="senderID" name="senderID" placeholder="Sender ID" />
+    <input type="text" id="receiverID" name="receiverID" placeholder="Receiver ID" />
+    <input type="text" id="amount" name="amount" placeholder="Amount" />
+    <p></p>
+</form>
+<p></p>
+<button id="getBut" onclick="GetTransactionClick()">Get Transaction Details</button>
+<button id="addBut" onclick="AddTransactionClick()">Add Transaction Details</button>
+
+<script>
+    function GetTransactionClick() {
+        $.ajax({
+            url: '/api/GetTransaction/' + $('#id').val(),
+            type: 'get',
+            contentType: 'application/json',
+            processData: false,
+            success: function (data, textStatus, jQxhr) {
+                var obj = data;
+                $("#senderID").val(obj.sourceAccountID);
+                $("#receiverID").val(obj.destinationAccountID);
+                $("#amount").val(obj.ammount);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    }
+
+    function AddTransactionsClick() {
+        $.ajax({
+            url: '/api/AddTransaction/',
+            type: 'post',
+            contentType: 'application/json',
+            processData: false,
+            data: JSON.stringify({
+                transactionID: null,
+                sourceAccountID: $("#senderID"),
+                destinationAccountID: $("#receiverID"),
+                amount: $("#ammount")
+            }),
+            success: function (data, textStatus, jQxhr) {
+                $('#id').val(data);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    }
+</script>
+
